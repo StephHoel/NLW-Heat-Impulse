@@ -29,11 +29,13 @@ export function MessageList() {
    useEffect(() => {
       setInterval(() => {
          if (messagesQueue.length > 0) {
-            setMessages(prevState => [
-               messagesQueue[0],
-               prevState[0],
-               prevState[1],
-            ].filter(Boolean));
+            setMessages(prevState => {
+               return [
+                  messagesQueue[0],
+                  prevState[0],
+                  prevState[1],
+               ].filter(Boolean);
+            });
 
             messagesQueue.shift();
          }
