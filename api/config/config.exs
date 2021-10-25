@@ -17,6 +17,11 @@ config :api, ApiWeb.Endpoint,
   pubsub_server: Api.PubSub,
   live_view: [signing_salt: "PKW+4DZD"]
 
+config :api, Api.Scheduler,
+  jobs: [
+    {"* * * * * *", {Api.Tags.Count, :call, []}}
+  ]
+
 # Configures the mailer
 #
 # By default it uses the "Local" adapter which stores the emails

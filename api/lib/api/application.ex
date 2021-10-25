@@ -15,9 +15,12 @@ defmodule Api.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: Api.PubSub},
       # Start the Endpoint (http/https)
-      ApiWeb.Endpoint
+      ApiWeb.Endpoint,
       # Start a worker by calling: Api.Worker.start_link(arg)
       # {Api.Worker, arg}
+
+      # Scheduler
+      Api.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
